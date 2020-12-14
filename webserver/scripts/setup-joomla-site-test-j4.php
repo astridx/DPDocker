@@ -37,6 +37,7 @@ if (!is_dir($wwwRoot) || $force) {
 	echo 'Using version 4.0.0-beta5 on ' . $wwwRoot . PHP_EOL;
 }
 echo shell_exec('/var/www/html/Projects/DPDocker/webserver/scripts/install-joomla.sh ' . $wwwRoot . ' ' . $db . ' sites_' . $argv[1] . ' "Joomla ' . $argv[1] . '" mailcatcher');
+shell_exec('cp -r /var/www/html/Projects/DPDocker/build/dist/AG_DP_DEPLOY_VERSION.zip ' . $wwwRoot . '/AG_DP_DEPLOY_VERSION.zip' );
 
 // Check if extensions are needed to be installed
 if (!$argv[2]) {
