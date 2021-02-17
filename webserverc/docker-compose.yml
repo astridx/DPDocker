@@ -1,0 +1,47 @@
+version: '3.5'
+
+services:
+  web:
+    image: digitpeak/dpdocker-web:${PHP_VERSION1}
+    environment:
+      STARTUP_COMMAND_1: cp /var/www/html/Projects/DPDocker/webserverc/scripts/index.php /var/www/html
+      STARTUP_COMMAND_2: php /var/www/html/Projects/DPDocker/webserverc/scripts/setup-joomla-site.php ${JOOMLA_FOLDER1} ${EXTENSION1} ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_3: /var/www/html/Projects/DPDocker/webserverc/scripts/setup-joomla-core.sh cms4 ${DB1} ${REBUILD1}
+      PHP_INI_XDEBUG__DISCOVER_CLIENT_HOST: 1
+    links:
+      - mysql:mysql
+      - mailcatcher:mailcatcher
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./www:/var/www/html
+      - ./zips:/zips
+      - ../..:/var/www/html/Projects
+      - ../..:/usr/src/Projects
+      - ${EXTENSIONBASEDIR1}:${EXTENSIONBASEDIR1}
+
+  mysql:
+    image: mysql:${MYSQL_DBVERSION1}
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    command: --default-authentication-plugin=mysql_native_password --sql_mode=""
+    volumes:
+      - ./mysql_${MYSQL_DBVERSION1}_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root
+    links:
+      - mysql
+    ports:
+      - 81:80
+
+  mailcatcher:
+    image: schickling/mailcatcher
+    ports:
+      - 83:1080
