@@ -4,23 +4,134 @@ services:
   web:
     image: digitpeak/dpdocker-web:${PHP_VERSION1}
     environment:
-#      STARTUP_COMMAND_1: cp /var/www/html/Projects/DPDocker/webserverd/scripts/index.php /var/www/html
-      STARTUP_COMMAND_2: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php ${JOOMLA_FOLDER1} ${EXTENSION1} ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
-      STARTUP_COMMAND_3: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh ${JOOMLA_FOLDER1} ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
-#      STARTUP_COMMAND_4: php /var/www/html/Projects/DPDocker/webserverc/scripts/setup-joomla-site.php ${JOOMLA_FOLDER2} ${EXTENSION2} ${DB2} ${JOOMLA_VERSION2} ${REBUILD2} ${EXTENSIONBASEDIR2}
-#      STARTUP_COMMAND_5: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh ${JOOMLA_FOLDER2} ${DB2} ${JOOMLA_VERSION2} ${REBUILD2}
-#      STARTUP_COMMAND_6: php /var/www/html/Projects/DPDocker/webserverc/scripts/setup-joomla-site.php ${JOOMLA_FOLDER3} ${EXTENSION3} ${DB3} ${JOOMLA_VERSION3} ${REBUILD3} ${EXTENSIONBASEDIR3}
-#      STARTUP_COMMAND_7: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh ${JOOMLA_FOLDER3} ${DB3} ${JOOMLA_VERSION3} ${REBUILD3}
-#      STARTUP_COMMAND_8: php /var/www/html/Projects/DPDocker/webserverc/scripts/setup-joomla-site.php ${JOOMLA_FOLDER4} ${EXTENSION4} ${DB4} ${JOOMLA_VERSION4} ${REBUILD4} ${EXTENSIONBASEDIR4}
-#      STARTUP_COMMAND_9: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh ${JOOMLA_FOLDER4} ${DB4} ${JOOMLA_VERSION4} ${REBUILD4}
+      STARTUP_COMMAND_1: cp /var/www/html/Projects/DPDocker/webserverd/scripts/index.php /var/www/html
+      STARTUP_COMMAND_2: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t1 t1 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_3: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t1 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_4: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t1b t1b ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_5: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t1b ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_6: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t2 t2 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_7: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t2 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_8: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t3 t3 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_9: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t3 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_10: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t4 t4 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_11: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t4 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_12: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t5 t5 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_13: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t5 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_14: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t6 t6 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_15: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t6 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_16: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t6b t6b ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_17: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t6b ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_18: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t7 t7 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_19: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t7 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_20: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t8 t8 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_21: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t8 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_22: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t9 t9 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_23: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t9 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_24: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t10 t10 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_25: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t10 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_26: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t11a t11a ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_27: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t11a ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_28: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t11b t11b ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_29: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t11b ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_30: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t12 t12 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_31: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t12 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_32: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t13 t13 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_33: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t13 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_34: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t14a t14a ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_35: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t14a ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_36: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t14b t14b ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_37: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t14b ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_38: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t15a t15a ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_39: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t15a ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_40: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t16 t16 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_41: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t16 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_42: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t17 t17 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_43: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t17 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_44: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t18 t18 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_45: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t18 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_46: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t19 t19 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_47: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t19 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_48: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t20 t20 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_49: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t20 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_50: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t21 t21 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_51: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t21 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_52: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t22 t22 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_53: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t22 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_54: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t23 t23 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_55: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t23 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_56: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t24 t24 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_57: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t24 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_58: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t24b t24b ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_59: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t24b ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_60: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t25 t25 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_61: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t25 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_62: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t26 t26 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_63: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t26 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_64: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t27 t27 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_65: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t27 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_66: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t28 t28 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_67: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t28 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_68: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t29 t29 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_69: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t29 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_70: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t30 t30 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_71: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t30 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_72: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t31 t31 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_73: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t31 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_74: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t32 t32 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_75: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t32 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_76: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t33 t33 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_77: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t33 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_78: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t34 t34 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_79: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t34 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
+      STARTUP_COMMAND_80: php /var/www/html/Projects/DPDocker/webserverd/scripts/setup-joomla-site.php t35 t35 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
+      STARTUP_COMMAND_81: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh t35 ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+
       PHP_INI_XDEBUG__DISCOVER_CLIENT_HOST: 1
     volumes:
-      - /srv/www/joomla:/var/www/html
+      - /srv/www/joomla/tutorial:/var/www/html
       - ./zips:/zips
       - ../..:/var/www/html/Projects
       - ../..:/usr/src/Projects
       - ${EXTENSIONBASEDIR1}:${EXTENSIONBASEDIR1}
-      - ${EXTENSIONBASEDIR3}:${EXTENSIONBASEDIR3}
     networks:
       docker-lamp_net:
         ipv4_address: 172.16.238.99

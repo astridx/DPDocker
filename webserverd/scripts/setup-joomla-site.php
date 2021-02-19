@@ -20,6 +20,22 @@ if (is_dir($wwwRoot) && !$rebuild) {
 
 if (!is_dir($wwwRoot) || $rebuild) {
 
+	if ($joomlaVersion == 'j4db8') {
+		echo 'installing j4db8' . PHP_EOL;
+		$path = '/zips/Joomla_4.0.0-beta8-dev-Development-Full_Package.zip';
+
+		$zip = new ZipArchive;
+		if ($zip->open($path) === TRUE) {
+			$zip->extractTo($wwwRoot);
+			$zip->close();
+			echo 'ok';
+		} else {
+			echo 'Fehler';
+		}
+
+		echo 'installing j4db8 (19.02) ready zip' . PHP_EOL;				
+	}
+
 	if ($joomlaVersion == 'j4b7') {
 		echo 'installing j4b7' . PHP_EOL;
 		$path = '/zips/Joomla_4.0.0-beta7-Beta-Full_Package.zip';
