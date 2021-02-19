@@ -1,3 +1,5 @@
+todo
+phpcs (nciht nur hier überall)
 # Build task
 This task runs a script which builds installable packages of an extension.
 

@@ -6,7 +6,13 @@ services:
     environment:
       STARTUP_COMMAND_1: cp /var/www/html/Projects/DPDocker/webserverc/scripts/index.php /var/www/html
       STARTUP_COMMAND_2: php /var/www/html/Projects/DPDocker/webserverc/scripts/setup-joomla-site.php ${JOOMLA_FOLDER1} ${EXTENSION1} ${DB1} ${JOOMLA_VERSION1} ${REBUILD1} ${EXTENSIONBASEDIR1}
-      STARTUP_COMMAND_3: /var/www/html/Projects/DPDocker/webserverc/scripts/setup-joomla-core.sh cms4 ${DB1} ${REBUILD1}
+      STARTUP_COMMAND_3: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh ${JOOMLA_FOLDER1} ${DB1} ${JOOMLA_VERSION1} ${REBUILD1}
+      STARTUP_COMMAND_4: php /var/www/html/Projects/DPDocker/webserverc/scripts/setup-joomla-site.php ${JOOMLA_FOLDER2} ${EXTENSION2} ${DB2} ${JOOMLA_VERSION2} ${REBUILD2} ${EXTENSIONBASEDIR2}
+      STARTUP_COMMAND_5: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh ${JOOMLA_FOLDER2} ${DB2} ${JOOMLA_VERSION2} ${REBUILD2}
+      STARTUP_COMMAND_6: php /var/www/html/Projects/DPDocker/webserverc/scripts/setup-joomla-site.php ${JOOMLA_FOLDER3} ${EXTENSION3} ${DB3} ${JOOMLA_VERSION3} ${REBUILD3} ${EXTENSIONBASEDIR3}
+      STARTUP_COMMAND_7: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh ${JOOMLA_FOLDER3} ${DB3} ${JOOMLA_VERSION3} ${REBUILD3}
+      STARTUP_COMMAND_8: php /var/www/html/Projects/DPDocker/webserverc/scripts/setup-joomla-site.php ${JOOMLA_FOLDER4} ${EXTENSION4} ${DB4} ${JOOMLA_VERSION4} ${REBUILD4} ${EXTENSIONBASEDIR4}
+      STARTUP_COMMAND_9: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh ${JOOMLA_FOLDER4} ${DB4} ${JOOMLA_VERSION4} ${REBUILD4}
       PHP_INI_XDEBUG__DISCOVER_CLIENT_HOST: 1
     links:
       - mysql:mysql
@@ -20,6 +26,7 @@ services:
       - ../..:/var/www/html/Projects
       - ../..:/usr/src/Projects
       - ${EXTENSIONBASEDIR1}:${EXTENSIONBASEDIR1}
+      - ${EXTENSIONBASEDIR3}:${EXTENSIONBASEDIR3}
 
   mysql:
     image: mysql:${MYSQL_DBVERSION1}

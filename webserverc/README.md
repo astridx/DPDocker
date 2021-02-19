@@ -1,3 +1,9 @@
+todo 
+index automatisch erstellen
+discover sql einfügen in datenbank
+symlink admin/site
+mit docker-lamp kombinieren?
+
 # Webserver task
 This task starts an apache web server on localhost with port 80. There are different joomla sites built during startup, either with Joomla 3 or 4. Some are for patch release development and some for feature release development where extensions are linked into them. Additionally there are other sites and tools available which are documented below.
 

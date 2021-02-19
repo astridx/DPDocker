@@ -6,7 +6,8 @@
  */
 
 $hasInternet = true;
-$wwwRoot = '/var/www/html/' . $argv[1];
+$joomlaFolder = $argv[1];
+$wwwRoot = '/var/www/html/' . $joomlaFolder;
 $extension = $argv[2];
 $db = $argv[3];
 $joomlaVersion = $argv[4];
@@ -31,9 +32,25 @@ if (!is_dir($wwwRoot) || $rebuild) {
 		} else {
 			echo 'Fehler';
 		}
-				
+
+		echo 'installing j4b7 ready zip' . PHP_EOL;				
 	}
-	echo 'installing j4b7 ready zip' . PHP_EOL;
+
+	if ($joomlaVersion == 'j3') {
+		echo 'installing j3' . PHP_EOL;
+		$path = '/zips/Joomla_3.9.24-Stable-Full_Package.zip';
+
+		$zip = new ZipArchive;
+		if ($zip->open($path) === TRUE) {
+			$zip->extractTo($wwwRoot);
+			$zip->close();
+			echo 'ok';
+		} else {
+			echo 'Fehler';
+		}
+
+		echo 'installing j3 ready zip' . PHP_EOL;				
+	}
 
 /*	
 	if (!is_dir('/var/www/html/cache') && $hasInternet) {
@@ -115,14 +132,7 @@ foreach ($folders as $project) {
 
 	createLinks($extensionbasedir . '/' . $project .  '/' , $wwwRoot);
 }
-echo 'Discovering extensions on ' . $wwwRoot . PHP_EOL;
-echo 'Discovering extensions on ' . $wwwRoot . PHP_EOL;
-//copy('/var/www/html/Projects/DPDocker/webserverc/scripts/discoverapp.php', $wwwRoot . '/discoverapp.php');
-// shell_exec('php ' . $wwwRoot . '/discoverapp.php');
-//unlink($wwwRoot . '/discoverapp.php');
-echo 'EndeDiscovering extensions on ' . $wwwRoot . PHP_EOL;
-echo 'EndeDiscovering extensions on ' . $wwwRoot . PHP_EOL;
-
+// Discover
 
 function createLinks($folderRoot, $wwwRoot)
 {
