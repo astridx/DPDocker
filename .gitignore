@@ -6,4 +6,5 @@
 **/vendor/
 **/node_modules/
 build/dist
+buildc/dist
 code/config/joomla

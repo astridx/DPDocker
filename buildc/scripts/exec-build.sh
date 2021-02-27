@@ -56,7 +56,7 @@ if [ "$active" = "1" ]; then
   cp -r $workingDir/dist $(dirname $0)/..
 
   echo "Cleanup working directory"
-  //sudo rm -rf $workingDir
+  # sudo rm -rf $workingDir
 
   echo "-------------------------x--------------------------------"
   echo "-------------------------x--------------------------------"

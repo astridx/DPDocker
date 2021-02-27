@@ -21,7 +21,7 @@
 <p>More information can be found on <a href="https://github.com/Digital-Peak/DPDocker/tree/initial/webserver">Github</a>.</p>
 <p>Here is the list of available sites:</p>
 <ul>
-	<li><a href="localhost">Joomla</a></li>
+	<li><a href="j3_pkg_agadvents">j3_pkg_agadvents</a> <a href="j3_pkg_agadvents/administrator">(admin)</a>.</li>
 	<li><a href="//<?php echo $_SERVER['SERVER_NAME']; ?>:81">PHPMyAdmin installation</a></li>
 	<li><a href="//<?php echo $_SERVER['SERVER_NAME']; ?>:82">Mailcatcher installation</a></li>
 </ul>
