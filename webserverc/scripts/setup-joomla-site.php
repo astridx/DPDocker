@@ -20,6 +20,22 @@ if (is_dir($wwwRoot) && !$rebuild) {
 
 if (!is_dir($wwwRoot) || $rebuild) {
 
+	if ($joomlaVersion == 'j4db8') {
+		echo 'installing j4db8' . PHP_EOL;
+		$path = '/zips/Joomla_4.0.0-beta8-dev-Development-Full_Package.zip';
+
+		$zip = new ZipArchive;
+		if ($zip->open($path) === TRUE) {
+			$zip->extractTo($wwwRoot);
+			$zip->close();
+			echo 'ok';
+		} else {
+			echo 'Fehler';
+		}
+
+		echo 'installing j4db8 (19.02) ready zip' . PHP_EOL;				
+	}
+
 	if ($joomlaVersion == 'j4b7') {
 		echo 'installing j4b7' . PHP_EOL;
 		$path = '/zips/Joomla_4.0.0-beta7-Beta-Full_Package.zip';
@@ -51,43 +67,6 @@ if (!is_dir($wwwRoot) || $rebuild) {
 
 		echo 'installing j3 ready zip' . PHP_EOL;				
 	}
-
-/*	
-	if (!is_dir('/var/www/html/cache') && $hasInternet) {
-		shell_exec('git clone https://github.com/joomla/joomla-cms.git /var/www/html/cache 2>&1 > /dev/null');
-	} else if ($hasInternet) {
-		shell_exec('git --work-tree=/var/www/html/cache --git-dir=/var/www/html/cache/.git fetch origin 2>&1 > /dev/null');
-	} else if (is_dir('/var/www/html/Projects/DPDocker/webserver/www/cache')) {
-		shell_exec('cp -r /var/www/html/Projects/DPDocker/webserver/www/cache /var/www/html/cache');
-	} else {
-		echo 'Can not setup Joomla!!!!' . PHP_EOL;
-
-		return;
-	}
-
-	shell_exec('rm -rf ' . $wwwRoot);
-	shell_exec('cp -r /var/www/html/cache ' . $wwwRoot);
-
-	if ($joomlaVersion == 4 && $hasInternet) {
-		// Checkout latest stable release
-		shell_exec('git --work-tree=' . $wwwRoot . ' --git-dir=' . $wwwRoot . '/.git fetch origin pull/32146/head:pr-32146 2>&1 > /dev/null');
-		shell_exec('git --work-tree=' . $wwwRoot . ' --git-dir=' . $wwwRoot . '/.git checkout pr-32146 2>&1 > /dev/null');
-		echo 'Using version 4.0.0-beta7 on ' . $wwwRoot . PHP_EOL;
-	} else if ($hasInternet) {
-		$versions = json_decode(file_get_contents('https://downloads.joomla.org/api/v1/latest/cms'));
-		foreach ($versions->branches as $branch) {
-			if ($branch->branch !== 'Joomla! 3') {
-				continue;
-			}
-			// Checkout latest stable release
-			shell_exec('git --work-tree=' . $wwwRoot . ' --git-dir=' . $wwwRoot . '/.git checkout tags/' . $branch->version . ' 2>&1 > /dev/null');
-			rename($wwwRoot . '/installation', $wwwRoot . '/_installation');
-			echo 'Using version ' . $branch->version . ' on ' . $wwwRoot . PHP_EOL;
-		}
-	} else {
-		rename($wwwRoot . '/installation', $wwwRoot . '/_installation');
-	}
-*/
 }
 //echo shell_exec('/var/www/html/Projects/DPDocker/webserver/scripts/install-joomla.sh ' . $wwwRoot . ' ' . $db . ' sites_' . $argv[1] . ' "Joomla ' . $argv[1] . '" mailcatcher');
 

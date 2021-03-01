@@ -21,13 +21,19 @@
 <p>More information can be found on <a href="https://github.com/Digital-Peak/DPDocker/tree/initial/webserver">Github</a>.</p>
 <p>Here is the list of available sites:</p>
 <ul>
-	<li><a href="j4b7_ag">j4b7_ag</a> <a href="j4b7_ag/administrator">(admin)</a>.</li>
-	<li><a href="j4b7_boilerplate">j4b7_boilerplate</a> <a href="j4b7_boilerplate/administrator">(admin)</a>.</li>
-	<li><a href="j3_testuptodatepackage">j3_testuptodatepackage</a> <a href="j3_testuptodatepackage/administrator">(admin)</a>.</li>
-	<li><a href="j3_pkg_agosms">j3_pkg_agosms</a> <a href="j3_pkg_agosms/administrator">(admin)</a>.</li>
-	<li><a href="j3_pkg_agadvents">j3_pkg_agadvents</a> <a href="j3_pkg_agadvents/administrator">(admin)</a>.</li>
-	<li><a href="//<?php echo $_SERVER['SERVER_NAME']; ?>:81">PHPMyAdmin installation</a></li>
-	<li><a href="//<?php echo $_SERVER['SERVER_NAME']; ?>:82">Mailcatcher installation</a></li>
+	<li><a href="https://joomla.local:8474/tutorial/t1/">t1</a> - <a href="https://joomla.local:8474/tutorial/t1/administrator">admin</a></li>
+	<li><a href="https://joomla.local:8474/tutorial/t1b/">t1b</a> - <a href="https://joomla.local:8474/tutorial/t1b/administrator">admin</a></li>
+	<li><a href="https://joomla.local:8474/tutorial/t1/">t1</a> - <a href="https://joomla.local:8474/tutorial/t1/administrator">admin</a></li>
+	<li><a href="https://joomla.local:8474/tutorial/t1/">t1</a> - <a href="https://joomla.local:8474/tutorial/t1/administrator">admin</a></li>
+	<li><a href="https://joomla.local:8474/tutorial/t1/">t1</a> - <a href="https://joomla.local:8474/tutorial/t1/administrator">admin</a></li>
+	<li><a href="https://joomla.local:8474/tutorial/t1/">t1</a> - <a href="https://joomla.local:8474/tutorial/t1/administrator">admin</a></li>
+	<li><a href="https://joomla.local:8474/tutorial/t1/">t1</a> - <a href="https://joomla.local:8474/tutorial/t1/administrator">admin</a></li>
+	<li><a href="https://joomla.local:8474/tutorial/t1/">t1</a> - <a href="https://joomla.local:8474/tutorial/t1/administrator">admin</a></li>
+	<li><a href="https://joomla.local:8474/tutorial/t1/">t1</a> - <a href="https://joomla.local:8474/tutorial/t1/administrator">admin</a></li>
+	<li><a href="https://joomla.local:8474/tutorial/t1/">t1</a> - <a href="https://joomla.local:8474/tutorial/t1/administrator">admin</a></li>
+	<li><a href="https://joomla.local:8474/tutorial/t1/">t1</a> - <a href="https://joomla.local:8474/tutorial/t1/administrator">admin</a></li>
+	<li><a href="https://joomla.local:8474/tutorial/t1/">t1</a> - <a href="https://joomla.local:8474/tutorial/t1/administrator">admin</a></li>
+	<li><a href="https://joomla.local:8474/tutorial/t1/">t1</a> - <a href="https://joomla.local:8474/tutorial/t1/administrator">admin</a></li>
 </ul>
 </body>
 </html>
