@@ -28,6 +28,11 @@ vendor/bin/codecept build
 mkdir -p $(dirname $0)/../../../$1/tests/_support/_generated
 cp -f $(dirname $0)/../tmp/_support/_generated/AcceptanceTesterActions.php $(dirname $0)/../../../$1/tests/_support/_generated/AcceptanceTesterActions.php
 
+
+# todo if zip need to copy
+cp -r $(dirname $0)/../../buildc/dist/AG_1_0.zip $(dirname $0)/../www/joomla4/AG_1_0.zip
+cp -r $(dirname $0)/../../buildc/dist/AG_1_0.zip $(dirname $0)/../www/joomla3/AG_1_0.zip
+
 # Check if there are multiple testsc to run
 if [[ ! -z $4 && $4 != *".php:"* ]]; then
   vendor/bin/codecept run --env desktop ${4#"tests/"}

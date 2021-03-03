@@ -32,21 +32,21 @@ if [ -z $e ]; then
 fi
 
 # Clear mysql data when running all testsc
-# if [ -z $t ]; then
-#  docker container rm -f $(docker container ls -q --filter name=testsc_*) > /dev/null 2>&1
-#  sudo rm -rf $(dirname $0)/mysql_data
-#  if [ ! -d $(dirname $0)/www ]; then
-#    mkdir $(dirname $0)/www
-#  fi
-#  if [ -d $(dirname $0)/www/joomla3 ]; then
-#    sudo rm -rf $(dirname $0)/www/joomla3
-#  fi
-#  if [ -d $(dirname $0)/www/joomla4 ]; then
-#    sudo rm -rf $(dirname $0)/www/joomla4
-#  fi
-#  EXTENSION=$e TEST=$t JOOMLA=$j REBUILD= MYSQL_DBVERSION=$my PHP_VERSION=$php BROWSER=$b DEBUG=$d docker-compose -f $(dirname $0)/docker-compose.yml up -d mysql-test
-#  sleep 5
-#fi
+if [ -z $t ]; then
+  docker container rm -f $(docker container ls -q --filter name=testsc_*) > /dev/null 2>&1
+  sudo rm -rf $(dirname $0)/mysql_data
+  if [ ! -d $(dirname $0)/www ]; then
+    mkdir $(dirname $0)/www
+  fi
+  if [ -d $(dirname $0)/www/joomla3 ]; then
+    sudo rm -rf $(dirname $0)/www/joomla3
+  fi
+  if [ -d $(dirname $0)/www/joomla4 ]; then
+    sudo rm -rf $(dirname $0)/www/joomla4
+  fi
+  EXTENSION=$e TEST=$t JOOMLA=$j REBUILD= MYSQL_DBVERSION=$my PHP_VERSION=$php BROWSER=$b DEBUG=$d docker-compose -f $(dirname $0)/docker-compose.yml up -d mysql-test
+  sleep 5
+fi
 
 # Run containers in detached mode so when the system testsc command ends, we can stop them afterwards
 EXTENSION=$e TEST=$t JOOMLA=$j REBUILD= MYSQL_DBVERSION=$my PHP_VERSION=$php BROWSER=$b DEBUG=$d docker-compose -f $(dirname $0)/docker-compose.yml up -d phpmyadmin-test
@@ -80,6 +80,6 @@ else
 fi
 
 # Stop the containers
-#if [ -z $t ]; then
-#  docker container stop $(docker container ls -q --filter name=testsc_*) > /dev/null 2>&1
-#fi
+if [ -z $t ]; then
+  docker container stop $(docker container ls -q --filter name=testsc_*) > /dev/null 2>&1
+fi
