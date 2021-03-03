@@ -14,4 +14,4 @@ if [ ! -d $WEBBASEDIR1 ]; then
 fi
 
 # Start the dev server
-docker-compose -f $(dirname $0)/docker-compose.yml up
+docker-compose -f $(dirname $0)/docker-compose.yml run --rm web

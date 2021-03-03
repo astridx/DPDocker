@@ -85,7 +85,7 @@ if ($extension == 'all') {
 	$folders = array_diff(scandir($extensionbasedir), ['..', '.', 'DPDocker']);
 }
 
-print_r( $folders);
+// print_r( $folders);
 
 foreach ($folders as $project) {
 	// Ignore projects with a dash when not a dev site is built and we use all extensions

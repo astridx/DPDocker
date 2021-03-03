@@ -1,0 +1,66 @@
+version: '3.5'
+
+services:
+  system-tests:
+    image: digitpeak/dpdocker-cli:7.4
+    command: /usr/src/Projects/DPDocker/testsc/scripts/exec-system-testsc.sh ${EXTENSION} ${JOOMLA} ${BROWSER} ${TEST}
+    links:
+      - mailcatcher-test
+    volumes:
+      - ../..:/usr/src/Projects
+      - /tmp/tests:/tmp/tests
+
+  selenium-test:
+    image: selenium/standalone-${BROWSER}${DEBUG}:3.141.59-20210128
+    ports:
+      - 4444:4444
+      - 5900:5900
+    volumes:
+      - /dev/shm:/dev/shm
+      - /tmp/tests :/tmp/tests
+      - ../..:/usr/src/Projects
+
+  web-test:
+    image: digitpeak/dpdocker-web:${PHP_VERSION}
+    environment:
+      STARTUP_COMMAND_1: php /var/www/html/Projects/DPDocker/webserver/scripts/setup-joomla-site.php joomla3 ${EXTENSION} mysql-test 3
+      STARTUP_COMMAND_2: php /var/www/html/Projects/DPDocker/webserver/scripts/setup-joomla-site.php joomla4 ${EXTENSION} mysql-test 4
+      # Some defaults
+      STARTUP_COMMAND_3: sudo sed -i "s/debug = '1'/debug = 0/g" /var/www/html/joomla3/configuration.php
+      STARTUP_COMMAND_4: sudo sed -i "s/sef = '1'/sef = 0/g" /var/www/html/joomla3/configuration.php
+      STARTUP_COMMAND_5: sudo sed -i "s/smtphost = 'mailcatcher'/smtphost = 'mailcatcher-test'/g" /var/www/html/joomla3/configuration.php
+      STARTUP_COMMAND_6: sudo sed -i "s/debug = '1'/debug = 0/g" /var/www/html/joomla4/configuration.php
+      STARTUP_COMMAND_7: sudo sed -i "s/sef = '1'/sef = 0/g" /var/www/html/joomla4/configuration.php
+      STARTUP_COMMAND_8: sudo sed -i "s/smtphost = 'mailcatcher'/smtphost = 'mailcatcher-test'/g" /var/www/html/joomla4/configuration.php
+    links:
+      - mysql-test
+      - mailcatcher-test
+    ports:
+      - 8080:80
+    volumes:
+      - ./www:/var/www/html
+      - ../..:/var/www/html/Projects
+      - ../..:/usr/src/Projects
+
+  mysql-test:
+    image: mysql:${MYSQL_DBVERSION}
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+
+  phpmyadmin-test:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysql-test
+      PMA_USER: root
+      PMA_PASSWORD: root
+    links:
+      - mysql-test
+    ports:
+      - 8081:80
+
+  mailcatcher-test:
+    image: schickling/mailcatcher
+    ports:
+      - 8082:1080

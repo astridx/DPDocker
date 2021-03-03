@@ -1,0 +1,60 @@
+# This is the Codeception Test Suite Configuration
+
+# To use it rename this file to acceptance.suite.yml (it will be ignored by git)
+
+# To run the test modify the following parameters according to your localhost details:
+#  - url
+#  - folder
+#  - db_user and db_pass
+
+# suite for acceptance testsc.
+# perform testsc in browser using the WebDriver or PhpBrowser.
+# If you need both WebDriver and PHPBrowser testsc - create a separate suite.
+
+class_name: AcceptanceTester
+modules:
+  enabled:
+    - JoomlaBrowser
+    - Helper\Acceptance
+    - Helper\JoomlaDb
+    - Filesystem
+    - Asserts
+  config:
+    JoomlaBrowser:
+      host: 'selenium-test'
+      port: 4444
+      url: 'http://web-test/joomla4'
+      browser: '{BROWSER}'
+      restart: true
+      clear_cookies: true
+      window_size: 1024x1024
+      capabilities:
+        unexpectedAlertBehaviour: 'accept'
+        'goog:chromeOptions':
+          prefs:
+            download.default_directory: '/tmp/testsc'
+      username: 'admin'
+      password: 'admin'
+      database host: 'mysql-test'
+      database user: 'root'
+      database password: 'root'
+      database name: 'sites_joomla4'
+      database type: 'mysqli'
+      database prefix: 'j_'
+      install sample data: 'no'
+      sample data: 'Default English (GB) Sample Data'
+      admin email: 'admin@example.com'
+      language: 'English (United Kingdom)'
+      timeout: 10
+    Helper\JoomlaDb:
+      dsn: 'mysql:host=mysql-test;dbname=sites_joomla4'
+      user: 'root'
+      password: 'root'
+      prefix: 'j_'
+    Helper\Acceptance:
+      downloads: '/tmp/testsc'
+      repo_folder: ''
+      url: 'http://localhost/joomla4'
+      home_dir: '/usr/src/Projects/DPDocker/testsc/www/joomla4'
+      joomla_version: 4
+error_level: 'E_ALL & ~E_STRICT & ~E_DEPRECATED'

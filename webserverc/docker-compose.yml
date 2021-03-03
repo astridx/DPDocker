@@ -2,7 +2,7 @@ version: '3.5'
 
 services:
   web:
-    image: digitpeak/dpdocker-web:${PHP_VERSION}
+    image: digitpeak/dpdocker-cli
     environment:
       STARTUP_COMMAND_1: cp /var/www/html/Projects/DPDocker/webserverc/scripts/index.php /var/www/html
       STARTUP_COMMAND_2: php /var/www/html/Projects/DPDocker/webserverc/scripts/setup-joomla-site.php ${JOOMLA_FOLDER} ${EXTENSION} ${DB} ${JOOMLA_VERSION} ${REBUILD} ${EXTENSIONBASEDIR}
