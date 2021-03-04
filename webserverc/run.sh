@@ -9,9 +9,13 @@ SCRIPTPATH="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
 # echo $WEBBASEDIR1
 # Create the www directory as the current user. So all subdirs will inherit the permissions.
-if [ ! -d $WEBBASEDIR1 ]; then
-  mkdir $WEBBASEDIR1
+# if [ ! -d $WEBBASEDIR1 ]; then
+#  mkdir $WEBBASEDIR1
+#fi
+# Create the www directory as the current user. So all subdirs will inherit the permissions.
+if [ ! -d $(dirname $0)/www ]; then
+  mkdir $(dirname $0)/www
 fi
 
 # Start the dev server
-docker-compose -f $(dirname $0)/docker-compose.yml run --rm web
+docker-compose -f $(dirname $0)/docker-compose.yml up

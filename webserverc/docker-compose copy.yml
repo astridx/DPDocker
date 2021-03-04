@@ -1,0 +1,22 @@
+version: '3.5'
+
+services:
+  web:
+    image: digitpeak/dpdocker-cli
+    environment:
+      STARTUP_COMMAND_1: cp /var/www/html/Projects/DPDocker/webserverc/scripts/index.php /var/www/html
+      STARTUP_COMMAND_2: php /var/www/html/Projects/DPDocker/webserverc/scripts/setup-joomla-site.php ${JOOMLA_FOLDER} ${EXTENSION} ${DB} ${JOOMLA_VERSION} ${REBUILD} ${EXTENSIONBASEDIR}
+      STARTUP_COMMAND_3: /var/www/html/Projects/DPDocker/webserverc/scripts/install-joomla.sh ${JOOMLA_FOLDER} ${DB} ${JOOMLA_VERSION} ${REBUILD}
+      PHP_INI_XDEBUG__DISCOVER_CLIENT_HOST: 1
+    volumes:
+      - ${WEBBASEDIR}:/var/www/html
+      - ./zips:/zips
+      - ../..:/var/www/html/Projects
+      - ../..:/usr/src/Projects
+      - ${EXTENSIONBASEDIR}:${EXTENSIONBASEDIR}
+    networks:
+      docker-lamp_net:
+        ipv4_address: 172.16.238.99
+networks:
+  docker-lamp_net:
+    external: true

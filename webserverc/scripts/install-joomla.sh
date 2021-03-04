@@ -52,7 +52,7 @@ if [ ! -d $installFolder ]; then
 fi
 
 if [[ -z $dbHost || $dbHost == 'mysql'* ]]; then
-  echo "Installing Joomla with mysql"
+  echo "Installing Joomla with mysql with dbhost $dbHost"
   sed -i "s/{DBDRIVER}/mysqli/g" $root/configuration.php
 
   # Install joomla
