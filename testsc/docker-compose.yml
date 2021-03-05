@@ -9,6 +9,7 @@ services:
     volumes:
       - ../..:/usr/src/Projects
       - /tmp/tests:/tmp/tests
+      - ${EXTENSIONBASEDIR}/${EXTENSION}:/extension
 
   selenium-test:
     image: selenium/standalone-${BROWSER}${DEBUG}:3.141.59-20210128
@@ -17,21 +18,19 @@ services:
       - 5900:5900
     volumes:
       - /dev/shm:/dev/shm
-      - /tmp/tests :/tmp/tests
+      - /tmp/tests:/tmp/tests
       - ../..:/usr/src/Projects
+      - ${EXTENSIONBASEDIR}/${EXTENSION}:/extension
 
   web-test:
     image: digitpeak/dpdocker-web:${PHP_VERSION}
     environment:
-      STARTUP_COMMAND_1: php /var/www/html/Projects/DPDocker/webserver/scripts/setup-joomla-site.php joomla3 ${EXTENSION} mysql-test 3
-      STARTUP_COMMAND_2: php /var/www/html/Projects/DPDocker/webserver/scripts/setup-joomla-site.php joomla4 ${EXTENSION} mysql-test 4
+      STARTUP_COMMAND_1: php /var/www/html/Projects/DPDocker/testsc/scripts/setup-joomla-site.php joomla4 - ${DB} ${JOOMLA_VERSION} ${REBUILD} ${EXTENSIONBASEDIR}
+      STARTUP_COMMAND_2: /var/www/html/Projects/DPDocker/testsc/scripts/install-joomla.sh joomla4 ${DB} ${JOOMLA_VERSION} ${REBUILD}
       # Some defaults
-      STARTUP_COMMAND_3: sudo sed -i "s/debug = '1'/debug = 0/g" /var/www/html/joomla3/configuration.php
-      STARTUP_COMMAND_4: sudo sed -i "s/sef = '1'/sef = 0/g" /var/www/html/joomla3/configuration.php
-      STARTUP_COMMAND_5: sudo sed -i "s/smtphost = 'mailcatcher'/smtphost = 'mailcatcher-test'/g" /var/www/html/joomla3/configuration.php
-      STARTUP_COMMAND_6: sudo sed -i "s/debug = '1'/debug = 0/g" /var/www/html/joomla4/configuration.php
-      STARTUP_COMMAND_7: sudo sed -i "s/sef = '1'/sef = 0/g" /var/www/html/joomla4/configuration.php
-      STARTUP_COMMAND_8: sudo sed -i "s/smtphost = 'mailcatcher'/smtphost = 'mailcatcher-test'/g" /var/www/html/joomla4/configuration.php
+      STARTUP_COMMAND_3: sudo sed -i "s/debug = '1'/debug = 0/g" /var/www/html/joomla4/configuration.php
+      STARTUP_COMMAND_4: sudo sed -i "s/sef = '1'/sef = 0/g" /var/www/html/joomla4/configuration.php
+      STARTUP_COMMAND_5: sudo sed -i "s/smtphost = 'mailcatcher'/smtphost = 'mailcatcher-test'/g" /var/www/html/joomla4/configuration.php
     links:
       - mysql-test
       - mailcatcher-test
@@ -39,13 +38,16 @@ services:
       - 8080:80
     volumes:
       - ./www:/var/www/html
+      - ./zips:/zips
       - ../..:/var/www/html/Projects
       - ../..:/usr/src/Projects
+      - ${EXTENSIONBASEDIR}/${EXTENSION}:/extension
 
   mysql-test:
     image: mysql:${MYSQL_DBVERSION}
     environment:
       MYSQL_ROOT_PASSWORD: root
+    command: --default-authentication-plugin=mysql_native_password --sql_mode=""
     volumes:
       - ./mysql_data:/var/lib/mysql
 

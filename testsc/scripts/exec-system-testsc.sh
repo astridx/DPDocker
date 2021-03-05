@@ -19,19 +19,19 @@ composer install --quiet
 rm -rf $(dirname $0)/../tmp
 mkdir $(dirname $0)/../tmp
 cd $(dirname $0)/../tmp
-cp -r $(dirname $0)/../../../$1/tests/* .
+cp -r /extension/tests/* .
 cp -r $(dirname $0)/../config/j$2/* .
 sed -i "s/{BROWSER}/$3/" acceptance.suite.yml
 
 # Build the actions class and copy it back
 vendor/bin/codecept build
-mkdir -p $(dirname $0)/../../../$1/tests/_support/_generated
-cp -f $(dirname $0)/../tmp/_support/_generated/AcceptanceTesterActions.php $(dirname $0)/../../../$1/tests/_support/_generated/AcceptanceTesterActions.php
+mkdir -p /extension/tests/_support/_generated
+cp -f $(dirname $0)/../tmp/_support/_generated/AcceptanceTesterActions.php /extension/tests/_support/_generated/AcceptanceTesterActions.php
 
 
 # todo if zip need to copy
-cp -r $(dirname $0)/../../buildc/dist/AG_1_0.zip $(dirname $0)/../www/joomla4/AG_1_0.zip
-cp -r $(dirname $0)/../../buildc/dist/AG_1_0.zip $(dirname $0)/../www/joomla3/AG_1_0.zip
+cp -r $(dirname $0)/../../buildc/dist/pkg_system_agscsscompiler_1_0.zip $(dirname $0)/../www/joomla4/pkg_system_agscsscompiler_1_0.zip
+cp -r $(dirname $0)/../../buildc/dist/pkg_system_agscsscompiler_1_0.zip $(dirname $0)/../www/joomla3/pkg_system_agscsscompiler_1_0.zip
 
 # Check if there are multiple testsc to run
 if [[ ! -z $4 && $4 != *".php:"* ]]; then
