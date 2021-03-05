@@ -4,12 +4,7 @@ services:
   build:
     image: digitpeak/dpdocker-cli
     command: 
-      sh -c "/usr/src/Projects/DPDocker/buildc/scripts/exec-build.sh ${EXTENSION1} ${VERSION1} ${BASEDIR1} ${SRCFOLDER1} ${BUILDACTIVE1} &&
-             /usr/src/Projects/DPDocker/buildc/scripts/exec-build.sh ${EXTENSION2} ${VERSION2} ${BASEDIR2} ${SRCFOLDER2} ${BUILDACTIVE2} &&
-             /usr/src/Projects/DPDocker/buildc/scripts/exec-build.sh ${EXTENSION4} ${VERSION4} ${BASEDIR4} ${SRCFOLDER4} ${BUILDACTIVE4} &&
-             /usr/src/Projects/DPDocker/buildc/scripts/exec-build.sh ${EXTENSION5} ${VERSION5} ${BASEDIR5} ${SRCFOLDER5} ${BUILDACTIVE5} &&
-             /usr/src/Projects/DPDocker/buildc/scripts/exec-build.sh ${EXTENSION3} ${VERSION3} ${BASEDIR3} ${SRCFOLDER3} ${BUILDACTIVE3}"
+      sh -c "/usr/src/Projects/DPDocker/buildc/scripts/exec-build.sh ${EXTENSION} ${VERSION} ${EXTENSIONBASEDIR} ${SRCFOLDER} ${BUILDACTIVE}"
     volumes:
       - ../..:/usr/src/Projects
-      - ${BASEDIR1}:${BASEDIR1}
-      - ${BASEDIR2}:${BASEDIR2}
+      - ${BASEDIR}:${BASEDIR}

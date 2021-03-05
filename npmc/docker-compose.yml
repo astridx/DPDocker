@@ -1,0 +1,30 @@
+version: '3.5'
+
+services:
+  install:
+    image: digitpeak/dpdocker-cli
+    command: /usr/src/Projects/DPDocker/npmc/scripts/exec-npm-install.sh ${EXTENSION} ${INCLUDE_VENDOR}
+    volumes:
+      - ../..:/usr/src/Projects
+      - ${EXTENSIONBASEDIR}:${EXTENSIONBASEDIR}
+
+  update:
+    image: digitpeak/dpdocker-cli
+    command: /usr/src/Projects/DPDocker/npmc/scripts/exec-npm-update.sh ${EXTENSION} ${INCLUDE_VENDOR}
+    volumes:
+      - ../..:/usr/src/Projects
+      - ${EXTENSIONBASEDIR}:${EXTENSIONBASEDIR}
+
+  build:
+    image: digitpeak/dpdocker-cli
+    command: /usr/src/Projects/DPDocker/npmc/scripts/exec-build.sh {EXTENSIONBASEDIR}/${EXTENSION} ${INCLUDE_VENDOR}
+    volumes:
+      - ../..:/usr/src/Projects
+      - ${EXTENSIONBASEDIR}:${EXTENSIONBASEDIR}
+
+  watch:
+    image: digitpeak/dpdocker-cli
+    command: /usr/src/Projects/DPDocker/npmc/scripts/exec-watch.sh {EXTENSIONBASEDIR}/${EXTENSION} ${INCLUDE_VENDOR}
+    volumes:
+      - ../..:/usr/src/Projects
+      - ${EXTENSIONBASEDIR}:${EXTENSIONBASEDIR}

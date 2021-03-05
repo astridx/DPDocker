@@ -27,11 +27,11 @@ if [ "$active" = "1" ]; then
   cp -r $root $workingDir/$extension
   sudo rm -rf $workingDir/$extension/.git
 
-  echo "Installing dependencies"
-  $(dirname $0)/../../composer/scripts/exec-install.sh $extension '' $workingDir
+  echo "Installing PHP dependencies"
+  $(dirname $0)/../../composerc/scripts/exec-install.sh $extension '' $workingDir
 
   echo "Building assets"
-  $(dirname $0)/../../npm/scripts/exec-npm-install.sh $extension '' $workingDir
+  $(dirname $0)/../../npmc/scripts/exec-npm-install.sh $extension '' $workingDir
 
   if [ ! -z "$version" ]; then
     echo "Define version number in manifest files"

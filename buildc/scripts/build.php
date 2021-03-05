@@ -139,7 +139,7 @@ class DPDockerReleaseBuild
 				continue;
 			}
 
-			// Doe the substitution
+			// Do the substitution
 			if (key_exists($fileName, $substitutes)) {
 				$fileName = $substitutes[$fileName];
 			}

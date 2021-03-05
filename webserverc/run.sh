@@ -4,8 +4,8 @@
 # @license   http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
 
 # # load .env
-SCRIPTPATH="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
-. $SCRIPTPATH/.env 
+ENVPATH="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+. $ENVPATH/.env 
 
 # echo $WEBBASEDIR1
 # Create the www directory as the current user. So all subdirs will inherit the permissions.

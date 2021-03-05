@@ -1,0 +1,30 @@
+version: '3.5'
+
+services:
+  install:
+    image: digitpeak/dpdocker-cli:7.4
+    command: /usr/src/Projects/DPDocker/composerc/scripts/exec-install.sh ${EXTENSION} ${EXTENSIONBASEDIR}
+    volumes:
+      - ../..:/usr/src/Projects
+      - ${EXTENSIONBASEDIR}:${EXTENSIONBASEDIR}
+
+  update:
+    image: digitpeak/dpdocker-cli:7.4
+    command: /usr/src/Projects/DPDocker/composerc/scripts/exec-update.sh ${EXTENSION} ${EXTENSIONBASEDIR}
+    volumes:
+      - ../..:/usr/src/Projects
+      - ${EXTENSIONBASEDIR}:${EXTENSIONBASEDIR}
+
+  dep-tree:
+    image: digitpeak/dpdocker-cli:7.4
+    command: /usr/src/Projects/DPDocker/composerc/scripts/exec-dep-tree.sh ${EXTENSION} ${EXTENSIONBASEDIR}
+    volumes:
+      - ../..:/usr/src/Projects
+      - ${EXTENSIONBASEDIR}:${EXTENSIONBASEDIR}
+
+  list:
+    image: digitpeak/dpdocker-cli:7.4
+    command: /usr/src/Projects/DPDocker/composerc/scripts/exec-list.sh ${EXTENSION} ${EXTENSIONBASEDIR}
+    volumes:
+      - ../..:/usr/src/Projects
+      - ${EXTENSIONBASEDIR}:${EXTENSIONBASEDIR}
