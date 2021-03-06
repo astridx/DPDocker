@@ -23,7 +23,14 @@ class DPDockerReleaseBuild
 		mkdir($distFolder);
 
 		// Read the build config
-		$config = json_decode(file_get_contents($this->extensionRoot . '/package/build.json'));
+		$config = array();
+		try {
+			$config = json_decode(file_get_contents($this->extensionRoot . '/package/build.json'));
+		} catch (Exception $e) {
+			echo 'Config does not exist at ' . $this->extensionRoot . '/package/build.json' . PHP_EOL;;
+			exit(1);
+		}
+
 		foreach ($config->packages as $package) {
 			// Prepare the temp folder
 			$tmpFolder = dirname($this->extensionRoot) . '/build';

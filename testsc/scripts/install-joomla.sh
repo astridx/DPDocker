@@ -9,9 +9,17 @@ dbHost=$2-test
 joomlaVersion=$3
 rebuild=$4
 
+## load .env
+ENVPATH="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+. $ENVPATH/../../.env 
+
+echo "-----------------------------------"
+echo $ZIP;
+echo "-----------------------------------"
+
 root="/var/www/html/$joomlaFolder";
 smtpHost="mailcatcher"
-dbName="sites_joomla4"
+dbName="sites_joomla$JOOMLA"
 site="Joomla Testwebsite $3 $1"
 
 # Change the working directory

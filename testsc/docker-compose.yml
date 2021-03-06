@@ -38,7 +38,7 @@ services:
       - 8080:80
     volumes:
       - ./www:/var/www/html
-      - ./zips:/zips
+      - ../zips:/zips
       - ../..:/var/www/html/Projects
       - ../..:/usr/src/Projects
       - ${EXTENSIONBASEDIR}/${EXTENSION}:/extension

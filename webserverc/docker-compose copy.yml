@@ -10,7 +10,7 @@ services:
       PHP_INI_XDEBUG__DISCOVER_CLIENT_HOST: 1
     volumes:
       - ${WEBBASEDIR}:/var/www/html
-      - ./zips:/zips
+      - ../zips:/zips
       - ../..:/var/www/html/Projects
       - ../..:/usr/src/Projects
       - ${EXTENSIONBASEDIR}:${EXTENSIONBASEDIR}

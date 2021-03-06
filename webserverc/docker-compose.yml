@@ -15,7 +15,7 @@ services:
       - 443:443
     volumes:
       - ./www:/var/www/html
-      - ./zips:/zips
+      - ../zips:/zips
       - ../..:/var/www/html/Projects
       - ../..:/usr/src/Projects
       - ${EXTENSIONBASEDIR}:${EXTENSIONBASEDIR}

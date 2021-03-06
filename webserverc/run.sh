@@ -3,7 +3,7 @@
 # @copyright Copyright (C) 2020 Digital Peak GmbH. <https://www.digital-peak.com>
 # @license   http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
 
-# # load .env
+## load .env
 ENVPATH="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 . $ENVPATH/.env 
 

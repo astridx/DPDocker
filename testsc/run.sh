@@ -8,17 +8,7 @@ if [[ ! $(command -v curl) ]]; then
   exit 1
 fi
 
-#db=${db:-mysql}
-#pg=${pg:-latest}
-#my=${my:-5.6}
-#php=${php:-latest}
-#e=${e:-}
-#t=${t:-}
-#j=${j:-}
-#d=${j:--debug}
-#b=${b:-chrome}
-
-# Clear mysql data when running all testsc
+# Clear mysql and www data when running all testsc
 if [ -z $t ]; then
   docker container rm -f $(docker container ls -q --filter name=testsc_*) > /dev/null 2>&1
   sudo rm -rf $(dirname $0)/mysql_data
@@ -31,15 +21,15 @@ if [ -z $t ]; then
   if [ -d $(dirname $0)/www/joomla4 ]; then
     sudo rm -rf $(dirname $0)/www/joomla4
   fi
-  docker-compose -f $(dirname $0)/docker-compose.yml up -d mysql-test
+  docker-compose --env-file ../.env -f $(dirname $0)/docker-compose.yml up -d mysql-test
   sleep 15
 fi
 
 # Run containers in detached mode so when the system testsc command ends, we can stop them afterwards
-docker-compose -f $(dirname $0)/docker-compose.yml up -d phpmyadmin-test
-docker-compose -f $(dirname $0)/docker-compose.yml up -d mailcatcher-test
-docker-compose -f $(dirname $0)/docker-compose.yml up -d selenium-test
-docker-compose -f $(dirname $0)/docker-compose.yml up -d web-test
+docker-compose --env-file ../.env -f $(dirname $0)/docker-compose.yml up -d phpmyadmin-test
+docker-compose --env-file ../.env -f $(dirname $0)/docker-compose.yml up -d mailcatcher-test
+docker-compose --env-file ../.env -f $(dirname $0)/docker-compose.yml up -d selenium-test
+docker-compose --env-file ../.env -f $(dirname $0)/docker-compose.yml up -d web-test
 
 # Waiting for web server
 while ! curl http://localhost:8080 > /dev/null 2>&1; do
@@ -58,14 +48,7 @@ done
 #  vinagre localhost > /dev/null 2>&1 &
 #fi
 
-# Run the testsc
-#if [ -z $j ]; then
-#  EXTENSION=$e TEST=$t JOOMLA=3 REBUILD= MYSQL_DBVERSION=$my PHP_VERSION=$php BROWSER=$b DEBUG=$d docker-compose -f $(dirname $0)/docker-compose.yml run system-tests
-#  EXTENSION=$e TEST=$t JOOMLA=4 REBUILD= MYSQL_DBVERSION=$my PHP_VERSION=$php BROWSER=$b DEBUG=$d docker-compose -f $(dirname $0)/docker-compose.yml run system-tests
-#else
-#  EXTENSION=$e TEST=$t JOOMLA=$j REBUILD= MYSQL_DBVERSION=$my PHP_VERSION=$php BROWSER=$b DEBUG=$d docker-compose -f $(dirname $0)/docker-compose.yml run system-tests
-#fi
-docker-compose -f $(dirname $0)/docker-compose.yml run system-tests
+docker-compose --env-file ../.env -f $(dirname $0)/docker-compose.yml run system-tests
 
 # Stop the containers
 if [ -z $t ]; then

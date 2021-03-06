@@ -7,4 +7,4 @@ services:
       sh -c "/usr/src/Projects/DPDocker/buildc/scripts/exec-build.sh ${EXTENSION} ${VERSION} ${EXTENSIONBASEDIR} ${SRCFOLDER} ${BUILDACTIVE}"
     volumes:
       - ../..:/usr/src/Projects
-      - ${BASEDIR}:${BASEDIR}
+      - ${EXTENSIONBASEDIR}:${EXTENSIONBASEDIR}
