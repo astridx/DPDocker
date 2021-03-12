@@ -6,15 +6,18 @@ services:
     command: /usr/src/Projects/DPDocker/codec/scripts/exec-check.sh ${EXTENSION} ${FILE}
     volumes:
       - ../..:/usr/src/Projects
+      - ${EXTENSIONBASEDIR}/${EXTENSION}:/usr/src/Projects/${EXTENSION}
 
   fix:
     image: digitpeak/dpdocker-cli
     command: /usr/src/Projects/DPDocker/codec/scripts/exec-fix.sh ${EXTENSION} ${FILE}
     volumes:
       - ../..:/usr/src/Projects
+      - ${EXTENSIONBASEDIR}/${EXTENSION}:/usr/src/Projects/${EXTENSION}
 
   stats:
     image: digitpeak/dpdocker-cli
     command: /usr/src/Projects/DPDocker/codec/scripts/exec-stats.sh ${EXTENSION} ${FILE}
     volumes:
       - ../..:/usr/src/Projects
+      - ${EXTENSIONBASEDIR}/${EXTENSION}:/usr/src/Projects/${EXTENSION}
