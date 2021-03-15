@@ -54,7 +54,7 @@ if (!is_dir($wwwRoot) || $rebuild) {
 
 	if ($joomlaVersion == 'j3') {
 		echo 'installing j3' . PHP_EOL;
-		$path = '/zips/Joomla_3.9.24-Stable-Full_Package.zip';
+		$path = '/zips/Joomla_3.9.25-Stable-Full_Package_German.zip';
 
 		$zip = new ZipArchive;
 		if ($zip->open($path) === TRUE) {
